@@ -1,4 +1,5 @@
 import time
+import ctypes
 import threading
 from pynput.mouse import Button, Controller, Listener as MouseListener
 from pynput.keyboard import Listener as KeyboardListener, Key, KeyCode
@@ -10,6 +11,7 @@ mouse = Controller()
 clicking = False
 exit_program = False
 click_event = threading.Event()
+winmm = ctypes.windll.winmm
 
 SELECTED_BUTTON = Button.left
 
@@ -63,6 +65,8 @@ def on_click_setup(_, __, button, pressed):
             print("Выбрана правая кнопка мыши (ПКМ)")
             return False
 
+# устанавливаем минимальный квант времени Windows(1мс)
+winmm.timeBeginPeriods(1)
 # поток кликов
 click_thread = threading.Thread(target=clicker, daemon=True)
 click_thread.start()
@@ -96,4 +100,6 @@ while not exit_program:
     with KeyboardListener(on_press=on_press_keyboard) as keyboard_listener:
         keyboard_listener.join() # слушатель клавиатуры
 
+# Возвращаем стандартный квант времени Windows(15мс)
+winmm.timeEndPeriod(1)
 print("Программа успешно закрыта.")
