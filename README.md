@@ -16,5 +16,6 @@ simple autoclicker which might come in handy in minecraft pvp :)
   winmm.timeBeginPeriod(1)
   winmm.timeEndPeriod(1)
 
-in plans:
+## In plans
+
   * gradually create a convenient, customizable autoclicker and also make a GUI for it
