@@ -3,6 +3,8 @@ autoclicker on python, different implementations
 
 simple autoclicker which might come in handy in minecraft pvp :)
 
+you can also test this clicker in the Python console click test!
+
 ## Controls
 
 * **`=`** — Toggle the clicker on/off (Pause).
