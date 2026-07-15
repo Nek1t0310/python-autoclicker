@@ -1,5 +1,5 @@
-# python-autoclicker
-autoclicker on python, different implementations
+# cpp-python-autoclicker
+autoclicker on cpp and python, different implementations
 
 simple autoclicker which might come in handy in minecraft pvp :)
 
